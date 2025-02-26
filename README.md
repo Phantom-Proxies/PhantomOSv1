@@ -6,7 +6,7 @@ Currently uses Ultraviolet proxy and Ultraviolet backend scripts for a seamless 
 ## Deployment opions:
 
 ## Running locally
-~WILL NOT WORK ON WSL~
+WILL NOT WORK ON WSL!!
 
 ```sh
 git clone https://github.com/Phantom-Proxies/PhantomOSv1
