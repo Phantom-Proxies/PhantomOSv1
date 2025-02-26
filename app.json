@@ -1,0 +1,7 @@
+{
+	"name": "PhantomOSv1",
+	"description": "Proxy inside an open source and community run OS",
+	"repository": "https://github.com/Phantom-Proxies/PhantomOSv1",
+	"logo": "",
+	"keywords": ["PhantomOS", "ultraviolet"]
+}

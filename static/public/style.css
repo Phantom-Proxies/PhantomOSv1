@@ -1,0 +1,349 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #202020;
+    color: #d0d0d0;
+}
+
+#apps-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: none;
+    background: linear-gradient(to bottom, rgba(30, 30, 30, 0.95), rgba(20, 20, 20, 0.95));
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #d0d0d0;
+    box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.5);
+    height: 35px;
+    transition: box-shadow 0.3s ease;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#apps-bar:hover {
+    box-shadow: 0 -5px 12px rgba(0, 0, 0, 0.7);
+}
+
+#start-button {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-left: 10px;
+}
+
+#start-button:hover {
+    transform: scale(1.1);
+}
+
+#start-button img {
+    width: 25px;
+    height: 25px;
+}
+
+.app-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #3a3a3a, #303030);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.app-icon img {
+    width: 25px;
+    height: 25px;
+}
+
+#time-date {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    position: relative;
+}
+
+#time-button {
+    background: none;
+    border: none;
+    color: #d0d0d0;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#time-button span {
+    font-size: 0.8em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#time-popup {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    background: linear-gradient(to bottom, rgba(30, 30, 30, 0.98), rgba(20, 20, 20, 0.98));
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 101;
+    min-width: 150px;
+}
+#app-list {
+    position: fixed;
+    bottom: 53px;
+    left: 10px;
+    background: linear-gradient(to bottom, rgba(30, 30, 30, 0.98), rgba(20, 20, 20, 0.98));
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+#app-list.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.start-section {
+    margin-bottom: 10px;
+}
+
+.start-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.start-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.start-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.start-item:hover {
+    background-color: rgba(50, 50, 50, 0.7);
+    transform: scale(1.03);
+}
+
+.start-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.window {
+    position: absolute;
+    background: linear-gradient(to bottom, #303030, #282828);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    padding: 0;
+    display: none;
+    width: 600px;
+    height: 400px;
+    z-index: 10;
+    cursor: move;
+    resize: both;
+    overflow: hidden;
+    border: 1px solid #3a3a3a;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.window.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: linear-gradient(to bottom, #3a3a3a, #333333);
+    border-bottom: 1px solid #3a3a3a;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.window-controls button {
+    background-color: transparent;
+    border: none;
+    color: #d0d0d0;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 5px;
+}
+
+.window iframe {
+    width: 100%;
+    height: calc(100% - 38px);
+    border: none;
+}
+
+#credits-window {
+    width: 400px;
+    height: 300px;
+}
+
+#credits-content {
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+#particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#credits-content h1 {
+    margin-bottom: 10px;
+}
+
+#settings-window {
+    width: 800px;
+    height: 600px;
+}
+
+#settings-content {
+    display: flex;
+    position: relative;
+    height: calc(100% - 38px);
+}
+
+#settings-sidebar {
+    width: 200px;
+    background-color: #353535;
+    padding: 10px;
+    border-right: 1px solid #404040;
+}
+
+.settings-nav-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.settings-nav-item.active, .settings-nav-item:hover {
+    background-color: #404040;
+}
+
+#settings-main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.settings-section {
+    display: none;
+}
+
+.settings-section.active {
+    display: block;
+}
+
+#settings-particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+:root {
+    --bg-color: #202020;
+    --text-color: #d0d0d0;
+    --window-bg: linear-gradient(to bottom, #303030, #282828);
+    --header-bg: linear-gradient(to bottom, #3a3a3a, #333333);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.window {
+    background: var(--window-bg);
+}
+
+.window-header {
+    background: var(--header-bg);
+}
+
+body[data-theme="light"] {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --window-bg: linear-gradient(to bottom, #e0e0e0, #d0d0d0);
+    --header-bg: linear-gradient(to bottom, #f0f0f0, #e8e8e8);
+}
+
+body[data-theme="blue"] {
+    --bg-color: #1a5276;
+    --text-color: #e0f2f7;
+    --window-bg: linear-gradient(to bottom, #2980b9, #1f618d);
+    --header-bg: linear-gradient(to bottom, #3498db, #2471a3);
+}
+
+#wallpaper-selector button,
+#theme-selector button {
+    margin: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#rainCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}

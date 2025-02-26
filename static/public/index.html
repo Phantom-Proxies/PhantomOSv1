@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhantomOS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="rainCanvas"></canvas>
+    <div></div>
+    <div id="apps-bar">
+        <div id="start-button">
+            <img src="icons/windows.png" alt="Start">
+        </div>
+        <div class="app-icons-container">
+            <div class="app-icon" data-app="google" data-iframe-src="/proxy.html">
+                <img src="icons/chrome.png" alt="Chrome">
+            </div>
+            <div class="app-icon" data-app="credits">
+                <img src="icons/credits.png" alt="Credits">
+            </div>
+            <div class="app-icon" data-app="settings">
+                <img src="icons/settings.png" alt="Settings">
+            </div>
+        </div>
+        <div id="time-date">
+            <button id="time-button">
+                <span id="time"></span>
+                <span id="date"></span>
+            </button>
+            <div id="time-popup" class="hidden">
+                <p>Wi-Fi: <span id="wifi-status"></span></p>
+                <p>More info...</p>
+            </div>
+        </div>
+    </div>
+    <div id="app-list">
+        <div class="start-section">
+            <div class="start-title">Pinned</div>
+            <div class="start-items">
+                <div class="start-item" data-app="google" data-iframe-src="/proxy.html">
+                    <img src="icons/chrome.png" alt="Chrome"><span>Chrome</span>
+                </div>
+                <div class="start-item" data-app="credits">
+                    <img src="icons/credits.png" alt="Credits"><span>Credits</span>
+                </div>
+                <div class="start-item" data-app="settings">
+                    <img src="icons/settings.png" alt="Settings"><span>Settings</span>
+                </div>
+            </div>
+        </div>
+        <div class="start-section">
+            <div class="start-title">All apps</div>
+            <div class="start-items">
+                <div class="start-item" data-app="google" data-iframe-src="/proxy.html">
+                    <img src="icons/chrome.png" alt="Chrome"><span>Google Chrome</span>
+                </div>
+                <div class="start-item" data-app="credits">
+                    <img src="icons/credits.png" alt="Credits"><span>Credits</span>
+                </div>
+                <div class="start-item" data-app="settings">
+                    <img src="icons/settings.png" alt="Settings"><span>Settings</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="window" id="google-window">
+        <div class="window-header">
+            <div>Phantom Browser</div>
+            <div class="window-controls">
+                <button class="minimize">-</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <iframe id="uv-frame" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+    <div class="window" id="credits-window">
+        <div class="window-header">
+            <div>Credits</div>
+            <div class="window-controls">
+                <button class="minimize">-</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div id="credits-content">
+            <h1>PhantomOS Credits</h1>
+            <p>Developed by: dyamuh</p>
+            <p>Backend: Ultraviolet (epoxy) + Alloy</p>
+            <p>Frontend: dyamuh</p>
+            <p>Support: Riftriot</p>
+            <canvas id="particles-canvas"></canvas>
+        </div>
+    </div>
+    <div class="window" id="settings-window">
+        <div class="window-header">
+            <div>Settings</div>
+            <div class="window-controls">
+                <button class="minimize">-</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div id="settings-content">
+            <div id="settings-sidebar">
+                <div class="settings-nav-item active" data-section="personalization">Personalization</div>
+                <div class="settings-nav-item" data-section="network">Network</div>
+                <div class="settings-nav-item" data-section="apps">Apps</div>
+                <div class="settings-nav-item" data-section="about">About</div>
+            </div>
+            <div id="settings-main">
+                <div id="personalization" class="settings-section active">
+                    <h2>Personalization</h2>
+                    <div id="wallpaper-selector">
+                        <h3>Wallpaper</h3>
+                        <button data-wallpaper="PhantomOSWallpaper.png">Default</button>
+                        <button data-wallpaper="wallpaper2.jpg">Wallpaper 2</button>
+                        <button data-wallpaper="wallpaper3.jpg">Wallpaper 3</button>
+                    </div>
+                    <div id="theme-selector">
+                        <h3>Theme</h3>
+                        <button data-theme="dark">Dark</button>
+                        <button data-theme="light">Light</button>
+                        <button data-theme="blue">Blue</button>
+                    </div>
+                </div>
+                <div id="network" class="settings-section">
+                    <h2>Network</h2>
+                    <p>Wi-Fi: Connected</p>
+                    <p>Ethernet: Disconnected</p>
+                </div>
+                <div id="apps" class="settings-section">
+                    <h2>Apps</h2>
+                    <p>App List...</p>
+                </div>
+                <div id="about" class="settings-section">
+                    <h2>About PhantomOS</h2>
+                    <p>Version: 1.0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+</body>
+
+</html>
