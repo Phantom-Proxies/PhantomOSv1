@@ -9,7 +9,7 @@ import fastifyStatic from "@fastify/static";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
-const publicPath = "/home/humaydkhan/Ultraviolet-App/static/public";
+const publicPath = "/home/humaydkhan/PhantomOSv1/static/public";
 const fastify = Fastify({
 	serverFactory: (handler) => {
 		return createServer()
