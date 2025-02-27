@@ -1,7 +1,7 @@
 # PhantomOSv1 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Phantom-Proxies/PhantomOSv1/blob/main/LICENSE.txt)
 The source code and deployment for the first ever OS (and project) by Phantom Network.
 Currently uses Ultraviolet proxy and Ultraviolet backend scripts for a seamless experience.
-(please don't be stupid and deploy this via npm on a WSL instance.)
+(please don't be stupid and deploy this via npm on a WSL instance)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
