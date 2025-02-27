@@ -7,8 +7,8 @@ Currently uses Ultraviolet proxy and Ultraviolet backend scripts for a seamless 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
 
-## Deployment opions:
 
+## Deployment opions:
 ## Running locally
 WILL NOT WORK ON WSL!!
 
