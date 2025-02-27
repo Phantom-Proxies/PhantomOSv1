@@ -9,10 +9,7 @@
 </head>
 
 <body>
-    <!-- Making rain canvas -->
     <canvas id="rainCanvas"></canvas>
-    <div></div>
-    <!-- Taskbar -->
     <div id="apps-bar">
         <div id="start-button">
             <img src="icons/windows.png" alt="Start">
@@ -27,24 +24,18 @@
             <div class="app-icon" data-app="settings">
                 <img src="icons/settings.png" alt="Settings">
             </div>
-            <div class="app-icon" data-app="discord">
-                <img src="icons/discord.png" alt="Discord">
-            </div>
         </div>
-        <!-- Time and Date in bottom right corner -->
         <div id="time-date">
             <button id="time-button">
                 <span id="time"></span>
                 <span id="date"></span>
             </button>
-            <!-- Showingcorner showing network connection status -->
             <div id="time-popup" class="hidden">
                 <p>Wi-Fi: <span id="wifi-status"></span></p>
                 <p>More info...</p>
             </div>
         </div>
     </div>
-    <!-- Pinned apps -->
     <div id="app-list">
         <div class="start-section">
             <div class="start-title">Pinned</div>
@@ -58,12 +49,8 @@
                 <div class="start-item" data-app="settings">
                     <img src="icons/settings.png" alt="Settings"><span>Settings</span>
                 </div>
-                <div class="start-item" data-app="discord">
-                    <img src="icons/discord.png" alt="Discord">
-                </div>
             </div>
         </div>
-        <!-- Showing all apps -->
         <div class="start-section">
             <div class="start-title">All apps</div>
             <div class="start-items">
@@ -79,7 +66,6 @@
             </div>
         </div>
     </div>
-    <!-- Window for Phantom Browser -->
     <div class="window" id="google-window">
         <div class="window-header">
             <div>Phantom Browser</div>
@@ -89,18 +75,7 @@
                 <button class="close">×</button>
             </div>
         </div>
-        <!-- Using UV as proxy -->
         <iframe id="uv-frame" style="width: 100%; height: 100%; border: none;"></iframe>
-    </div>
-    <!-- Window for Discord -->
-    <div class="window" id="discord-window">
-        <div>Discord</div>
-        <div class="window-controls">
-            <button class="minimize">-</button>
-            <button class="maximize">□</button>
-            <button class="close">×</button>
-        </div>
-        <iframe id="discord-frame" style="width: 100%; height: 100%; border: none;" src="https://discord.com/app"></iframe>
     </div>
     <div class="window" id="credits-window">
         <div class="window-header">
@@ -111,7 +86,6 @@
                 <button class="close">×</button>
             </div>
         </div>
-        <!-- Credits window -->
         <div id="credits-content">
             <h1>PhantomOS Credits</h1>
             <p>Developed by: dyamuh</p>
@@ -121,7 +95,6 @@
             <canvas id="particles-canvas"></canvas>
         </div>
     </div>
-    <!-- Settings -->
     <div class="window" id="settings-window">
         <div class="window-header">
             <div>Settings</div>
@@ -154,7 +127,6 @@
                         <button data-theme="blue">Blue</button>
                     </div>
                 </div>
-                <!-- Network status in settings -->
                 <div id="network" class="settings-section">
                     <h2>Network</h2>
                     <p>Wi-Fi: Connected</p>
@@ -172,7 +144,6 @@
         </div>
     </div>
     <script src="script.js"></script>
-    <!-- JS for particle background -->
     <script src="particles.js"></script>
 </body>
 
