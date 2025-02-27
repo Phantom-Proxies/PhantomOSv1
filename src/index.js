@@ -9,7 +9,16 @@ import fastifyStatic from "@fastify/static";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
-const publicPath = "/home/humaydkhan/PhantomOSv1/static/public";
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const publicPath = __dirname.replace("src", "static") + "/public";
+console.log(publicPath);
+
 const fastify = Fastify({
 	serverFactory: (handler) => {
 		return createServer()
@@ -84,3 +93,4 @@ fastify.listen({
 	port: port,
 	host: "0.0.0.0",
 });
+
