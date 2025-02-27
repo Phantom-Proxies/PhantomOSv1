@@ -347,3 +347,13 @@ body[data-theme="blue"] {
     height: 100%;
     z-index: -1;
 }
+
+.minimize {
+    position:relative;
+    top:1px;
+}
+
+.close {
+    position:relative;
+    top:2px;
+}
