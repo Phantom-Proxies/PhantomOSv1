@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>"EchoTunnel Browser"</title>
+</head>
+<body>
+<style>
+    body {
+        background-color: white;
+    }
+</style>
+<h2>EchoTunnel Browser</h2>
+<input type="url" id="request-url">
+<button id="submit-button" onclick="startProxyBrowsing(document.getElementById('request-url').value)">Submit</button>
+</body>
+<script>
+  function startProxyBrowsing(URL) {
+    window.open(URL, '_self');
+  }
+</script>
+</html>

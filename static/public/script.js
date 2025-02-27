@@ -35,6 +35,22 @@ timeButton.addEventListener('click', () => {
 
 wifiStatus.textContent = "Connected";
 
+function fetchFile(URL) {
+    console.log("fetch file started");
+    const urlWithoutParams = location.protocol + '//' + location.host + location.pathname;
+    const proxyLoaderURL = urlWithoutParams.substring(0, urlWithoutParams.lastIndexOf('/')) + '/';
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(xhttp.responseText);
+            return xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", proxyLoaderURL+"echotunnel-internal/echotunnel-loaddoc.php?request=" + URL, true);
+    console.log(proxyLoaderURL+"echotunnel-internal/echotunnel-loaddoc.js");
+    xhttp.send();
+}
+
 // COMBINED event listener for app icons and start menu items:
 [...appIcons, ...appListItems].forEach(item => {
     item.addEventListener('click', () => {
@@ -42,9 +58,11 @@ wifiStatus.textContent = "Connected";
         const window = document.getElementById(`${app}-window`);
 
         if (app === 'google') {
-            const uvFrame = document.getElementById('uv-frame');
-            const iframeSrc = item.dataset.iframeSrc;
-            uvFrame.src = iframeSrc;
+            const urlWithoutParams = location.protocol + '//' + location.host + location.pathname;
+            const proxyLoaderURL = urlWithoutParams.substring(0, urlWithoutParams.lastIndexOf('/')) + '/';
+            console.log(proxyLoaderURL);
+            const uvFrame = document.getElementById('uv-frame').innerHTML = fetchFile(proxyLoaderURL + 'echotunnel-browser.html');
+            console.log(proxyLoaderURL + 'echotunnel-browser.html');
         }
 
         window.style.transform = 'scale(0.8)';
