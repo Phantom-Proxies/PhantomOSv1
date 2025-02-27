@@ -4,12 +4,14 @@ import { hostname } from "node:os";
 import wisp from "wisp-server-node";
 import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
-
+//fix for non-specific user install
+const os = require('node:os');
+const username = os.userInfo().username;
 // static paths
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
-const publicPath = "/home/humaydkhan/Ultraviolet-App/static/public";
+const publicPath = "/home/${username}/Ultraviolet-App/static/public";
 const fastify = Fastify({
 	serverFactory: (handler) => {
 		return createServer()
