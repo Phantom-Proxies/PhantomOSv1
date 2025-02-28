@@ -35,14 +35,13 @@ timeButton.addEventListener('click', () => {
 
 wifiStatus.textContent = "Connected";
 
-// COMBINED event listener for app icons and start menu items:
 [...appIcons, ...appListItems].forEach(item => {
     item.addEventListener('click', () => {
         const app = item.getAttribute('data-app');
         const window = document.getElementById(`${app}-window`);
 
-        if (app === 'google') {
-            const uvFrame = document.getElementById('uv-frame');
+        if (app === 'google' || app === 'chat') {
+            const uvFrame = window.querySelector('iframe');
             const iframeSrc = item.dataset.iframeSrc;
             uvFrame.src = iframeSrc;
         }
@@ -52,7 +51,7 @@ wifiStatus.textContent = "Connected";
         window.classList.add('show');
         bringWindowToFront(window);
 
-        if (appList.classList.contains('show')) { // Only close if app list is open
+        if (appList.classList.contains('show')) {
             appList.classList.remove('show');
         }
 
@@ -69,7 +68,6 @@ wifiStatus.textContent = "Connected";
         }
     });
 });
-
 
 windows.forEach(window => {
     const minimizeButton = window.querySelector('.minimize');
@@ -169,7 +167,6 @@ startButton.addEventListener('click', () => {
     appList.classList.toggle('show');
 });
 
-
 function bringWindowToFront(window) {
     const allWindows = document.querySelectorAll('.window');
     let maxZIndex = 10;
@@ -253,7 +250,6 @@ themeButtons.forEach(button => {
     });
 });
 
-
 const rainCanvas = document.getElementById('rainCanvas');
 const ctx = rainCanvas.getContext('2d');
 rainCanvas.width = window.innerWidth;
@@ -292,4 +288,3 @@ window.addEventListener('resize', () => {
     rainCanvas.width = window.innerWidth;
     rainCanvas.height = window.innerHeight;
 });
-
