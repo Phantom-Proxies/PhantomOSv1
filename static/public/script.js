@@ -42,7 +42,8 @@ wifiStatus.textContent = "Connected";
 
         if (app === 'google' || app === 'chat') {
             const uvFrame = window.querySelector('iframe');
-            const iframeSrc = item.dataset.iframeSrc;
+            const iframeSrc = new filePathHelper(item.dataset.iframeSrc).relativeToAbsolute();
+            console.log(new filePathHelper(item.dataset.iframeSrc).relativeToAbsolute());
             uvFrame.src = iframeSrc;
         }
 
