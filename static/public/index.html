@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhantomOS</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <canvas id="rainCanvas"></canvas>
     <div id="apps-bar">
@@ -23,6 +21,9 @@
             </div>
             <div class="app-icon" data-app="settings">
                 <img src="icons/settings.png" alt="Settings">
+            </div>
+            <div class="app-icon" data-app="chat" data-iframe-src="/phantomchat/index.html">
+                <img src="icons/chat.png" alt="Chat">
             </div>
         </div>
         <div id="time-date">
@@ -49,6 +50,9 @@
                 <div class="start-item" data-app="settings">
                     <img src="icons/settings.png" alt="Settings"><span>Settings</span>
                 </div>
+                <div class="start-item" data-app="chat" data-iframe-src="/phantomchat/index.html">
+                    <img src="icons/chat.png" alt="Chat"><span>Chat</span>
+                </div>
             </div>
         </div>
         <div class="start-section">
@@ -62,6 +66,9 @@
                 </div>
                 <div class="start-item" data-app="settings">
                     <img src="icons/settings.png" alt="Settings"><span>Settings</span>
+                </div>
+                <div class="start-item" data-app="chat" data-iframe-src="/phantomchat/index.html">
+                    <img src="icons/chat.png" alt="Chat"><span>Phantom Chat</span>
                 </div>
             </div>
         </div>
@@ -77,17 +84,6 @@
         </div>
         <iframe id="uv-frame" style="width: 100%; height: 100%; border: none;"></iframe>
     </div>
-<!--    <div class="window" id="phantomchat-window">-->
-<!--        <div class="window-header">-->
-<!--            <div>Phantom Chat</div>-->
-<!--            <div class="window-controls">-->
-<!--                <button class="minimize">-</button>-->
-<!--                <button class="maximize">□</button>-->
-<!--                <button class="close">×</button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <iframe id="phantomchat-frame" style="width: 100%; height: 100%; border: none;" src="/phantomchat/index.html"></iframe>-->
-<!--    </div>-->
     <div class="window" id="credits-window">
         <div class="window-header">
             <div>Credits</div>
@@ -100,8 +96,9 @@
         <div id="credits-content">
             <h1>PhantomOS Credits</h1>
             <p>Developed by: dyamuh</p>
-            <p>Backend: dyamuh with UV backend</p>
+            <p>Backend: dyamuh (using UV backend)</p>
             <p>Frontend: dyamuh, darkcat736, norsegod99</p>
+            <p>Support: Riftriot</p>
             <canvas id="particles-canvas"></canvas>
         </div>
     </div>
@@ -153,8 +150,18 @@
             </div>
         </div>
     </div>
+    <div class="window" id="chat-window">
+        <div class="window-header">
+            <div>Phantom Chat</div>
+            <div class="window-controls">
+                <button class="minimize">-</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <iframe src="/phantomchat/index.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
     <script src="script.js"></script>
     <script src="particles.js"></script>
 </body>
-
 </html>
