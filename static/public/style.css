@@ -368,7 +368,7 @@ body[data-theme="blue"] {
     width: 10px;
     height: 10px;
     animation: fall linear infinite;
-    z-index: 1;
+    z-index: 6;
 }
 
 @keyframes fall {
