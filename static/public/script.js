@@ -289,3 +289,50 @@ window.addEventListener('resize', () => {
     rainCanvas.width = window.innerWidth;
     rainCanvas.height = window.innerHeight;
 });
+
+let timeout;
+
+function V2() {
+    let shouldRun = true;
+    function loop() {
+        if (!shouldRun) return;
+
+        const numRaindrops = 100;
+
+        for (let i = 0; i < numRaindrops; i++) {
+            const raindrop = document.createElement('div');
+            raindrop.classList.add('raindrop');
+            const randomX = Math.random() * 100;
+            const randomDelay = Math.random() * 5;
+
+            raindrop.style.opacity = 1;
+            raindrop.style.left = `${randomX}vw`;
+            raindrop.style.animationDuration = `${Math.random() * 6 + 1}s`;
+            raindrop.style.animationDelay = `-${randomDelay}s`;
+
+            document.body.appendChild(raindrop);
+        }
+    }
+    loop();
+
+    console.log("Wallpaper changed to V2");
+}
+
+function stopV2() {
+    clearTimeout(timeout);
+}
+
+function switchToV2() {
+    V2();
+    rainCanvas.style.opacity = 0;
+}
+
+function switchToV1() {
+    rainCanvas.style.opacity = 1;
+    const raindrops = document.querySelectorAll('.raindrop');
+    raindrops.forEach(raindrop => raindrop.remove());
+}
+
+function switchToV3(){
+    canvas3.style.opacity = 0;
+}
