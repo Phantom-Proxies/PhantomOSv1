@@ -44,7 +44,8 @@ wifiStatus.textContent = "Connected";
 
         if (app === 'google') {
             const uvFrame = document.getElementById('uv-frame');
-            const iframeSrc = item.dataset.iframeSrc;
+            const iframeSrc = new filePathHelper(item.dataset.iframeSrc).relativeToAbsolute();
+            console.log(iframeSrc);
             uvFrame.src = iframeSrc;
         }
 
