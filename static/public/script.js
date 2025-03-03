@@ -297,32 +297,36 @@ window.addEventListener('resize', () => {
 });
 
 let timeout;
-
+let amountClicked = 0;
 
 function V2() {
     let shouldRun = true;
     function loop() {
-        if (!shouldRun) return;
+        if (amountClicked == 1){
+            if (!shouldRun) return;
 
-        const numRaindrops = 100;
+            const numRaindrops = 100;
 
-        for (let i = 0; i < numRaindrops; i++) {
-            const raindrop = document.createElement('div');
-            raindrop.classList.add('raindrop');
-            const randomX = Math.random() * 100;
-            const randomDelay = Math.random() * 5;
-    
-            raindrop.style.opacity = 1;
-            raindrop.style.left = `${randomX}vw`;
-            raindrop.style.animationDuration = `${Math.random() * 6 + 1}s`;
-            raindrop.style.animationDelay = `-${randomDelay}s`;
-    
-            document.body.appendChild(raindrop);
+            for (let i = 0; i < numRaindrops; i++) {
+                const raindrop = document.createElement('div');
+                raindrop.classList.add('raindrop');
+                const randomX = Math.random() * 100;
+                const randomDelay = Math.random() * 5;
+        
+                raindrop.style.opacity = 1;
+                raindrop.style.left = `${randomX}vw`;
+                raindrop.style.animationDuration = `${Math.random() * 6 + 1}s`;
+                raindrop.style.animationDelay = `-${randomDelay}s`;
+        
+                document.body.appendChild(raindrop);
+            }
+        } else {
+            console.log("Wallpaper V2 already up!")
         }
-    }
-    loop();
+            loop();
 
-    console.log("Wallpaper changed to V2");
+            console.log("Wallpaper changed to V2");
+    }
 }
 
 function stopV2() {
