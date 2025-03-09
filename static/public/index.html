@@ -90,8 +90,8 @@
         <div id="credits-content">
             <h1>PhantomOS Credits</h1>
             <p>Developed by: dyamuh</p>
-            <p>Backend: dyamuh with UV backend</p>
-            <p>Frontend: dyamuh, darkcat736, norsegod99</p>
+            <p>Backend: dyamuh, norsegod99, darkcat</p>
+            <p>Frontend: dyamuh</p>
             <canvas id="particles-canvas"></canvas>
         </div>
     </div>
@@ -118,8 +118,7 @@
                         <h3>Wallpaper</h3>
                         <button data-wallpaper="PhantomOSWallpaper.png" onclick="switchToV1()" id="defualtbtn">Default</button>
                         <button data-wallpaper="wallpaper2.jpg" onclick="switchToV2()" id="wallpaper2btn">Wallpaper 2</button>
-                        <!-- <button data-wallpaper="wallpaper3.jpg" onclick="switchToV3()">Wallpaper 3</button> -->
-                    </div>
+                        </div>
                     <div id="theme-selector">
                         <h3>Theme</h3>
                         <button data-theme="dark">Dark</button>
@@ -143,8 +142,77 @@
             </div>
         </div>
     </div>
+    <div id="changelog-window" class="hidden">
+        <div id="changelog-content">
+            <div id="changelog-header">
+                <button id="changelog-close">×</button>
+            </div>
+            <div id="changelog-text">
+                <h2>Changelog</h2>
+                <p>Version: 1.2.0</p>
+                <ul>
+                    <li>Blocked NSFW websites.</li>
+                    <li>Changed proxy to our own (might take time to load website).</li>
+                    <li>Browser version yet to come in v2 (after spring break)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
     <script src="particles.js"></script>
+    <style>
+        #changelog-window {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        #changelog-content {
+            position: relative;
+        }
+
+        #changelog-header {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+
+        #changelog-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #changelog-text {
+            padding: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const changelogWindow = document.getElementById('changelog-window');
+            const changelogClose = document.getElementById('changelog-close');
+
+            changelogWindow.classList.remove('hidden');
+
+            changelogClose.addEventListener('click', function() {
+                changelogWindow.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 
 </html>
